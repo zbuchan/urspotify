@@ -1,49 +1,67 @@
-import psycopg2
 import logging
+
+import psycopg2
 
 logger = logging.getLogger(__name__)
 
+
+# creates database tables
+# param = conn(connection)
 def create_tables(conn):
-    try: 
+    try:
         cur = conn.cursor()
 
-        cur.execute("""CREATE TABLE if not exists tracks (
+        cur.execute(
+            """CREATE TABLE if not exists tracks (
         track_id    varchar(80),
         album_id    varchar(80),
         title       varchar(80),
         played_at   timestamp
-        );""")
+        );"""
+        )
 
-        cur.execute("""CREATE TABLE if not exists artists (
+        cur.execute(
+            """CREATE TABLE if not exists artists (
         artist_id   varchar(80),
         artist      varchar(80)
-        );""")
+        );"""
+        )
 
-        cur.execute("""CREATE TABLE if not exists album (
+        cur.execute(
+            """CREATE TABLE if not exists album (
         album_id        varchar(80),
         title           varchar(80),
         total_tracks    integer     
-        );""")
+        );"""
+        )
 
-        cur.execute("""CREATE TABLE if not exists genres (
+        cur.execute(
+            """CREATE TABLE if not exists genres (
         genre_id    varchar(80),
         genre       varchar(80)
-        );""")
+        );"""
+        )
 
-        cur.execute("""CREATE TABLE if not exists artist_track (
+        cur.execute(
+            """CREATE TABLE if not exists artist_track (
         track_id    varchar(80),
         artist_id   varchar(80)
-        );""")
+        );"""
+        )
 
-        cur.execute("""CREATE TABLE if not exists artist_genre (
+        cur.execute(
+            """CREATE TABLE if not exists artist_genre (
         artist_id   varchar(80),
         genre_id    varchar(80)
-        );""")
+        );"""
+        )
 
-        cur.execute("""CREATE TABLE if not exists album_artist (
+        cur.execute(
+            """CREATE TABLE if not exists album_artist (
         album_id    varchar(80),
         artist_id   varchar(80)
-        );""")
+        );"""
+        )
 
         conn.commit()
 

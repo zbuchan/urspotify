@@ -1,0 +1,38 @@
+services:
+  db:
+    image: postgres:13
+    restart: always
+    environment:
+      - POSTGRES_USER=${pg_user}
+      - POSTGRES_PASSWORD=${pg_password}
+      - POSTGRES_DB=${DB}
+      - POSTGRES_HOST=${pg_host}
+    ports:
+      - 5432:5432
+  backend:
+    build: ./data_api/
+    environment:
+      - POSTGRES_USER=${pg_user}
+      - POSTGRES_PASSWORD=${pg_password}
+      - POSTGRES_DB=${DB}
+      - POSTGRES_HOST=${pg_host}
+    ports:
+      - 5000:5000
+  fronend:
+    build: ./frontend/vue_spotify
+    ports:
+      - 80:80
+  spotifyinit:
+    build: ./spotify_data_collect
+    restart: always
+    environment:
+      - POSTGRES_USER=${pg_user}
+      - POSTGRES_PASSWORD=${pg_password}
+      - POSTGRES_DB=${DB}
+      - POSTGRES_HOST=${pg_host}
+      - SPOTIPY_REDIRECT_URI=${URI}
+      - SPOTIPY_CLIENT_ID=${client_id}
+      - SPOTIPY_CLIENT_SECRET=${client_secret}
+
+ 
+    

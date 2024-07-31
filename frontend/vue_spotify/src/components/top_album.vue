@@ -9,6 +9,7 @@
           <h2>Top Albums</h2>
             <div v-for="(item, index) in sortedTopAlbums" :key="index">
               <p>{{ item.key }}: {{ item.value }}</p>
+              <pre> </pre>
             </div>
         </div>
   

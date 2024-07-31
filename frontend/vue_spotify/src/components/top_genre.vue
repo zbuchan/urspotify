@@ -46,6 +46,7 @@ onMounted(() => {
         <h2>Top Genre</h2>
           <div v-for="(item, index) in sortedTopGenre" :key="index">
             <p>{{ item.key }}: {{ item.value }}</p>
+            <pre> </pre>
           </div>
       </div>
 
