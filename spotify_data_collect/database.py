@@ -43,13 +43,6 @@ def data_exsists_track(track_id, album_id, name, played_at, conn):
 def insert_track_into_data_base(track_id, album_id, name, time, conn):
     cur = conn.cursor()
 
-    print("Table track ------------------------------------->")
-    print(track_id)
-    print(album_id)
-    print(name)
-    print(time)
-    print("\n")
-
     # checks if track is already in data base, if not data_exsists == None, inserts into database and if song does not equal same time insert
     if (
         str(data_exsists_track(track_id, album_id, name, time, conn)) == "None"
@@ -69,11 +62,6 @@ def insert_track_into_data_base(track_id, album_id, name, time, conn):
 
 def insert_artist_into_data_base(artist_id, name, conn):
     cur = conn.cursor()
-
-    print("Table artist ------------------------------------->")
-    print(artist_id)
-    print(name)
-    print("\n")
 
     if str(data_exsists_artist(artist_id, name, conn)) == "None":
 
@@ -99,8 +87,6 @@ def data_exsists_artist(artist_id, name, conn):
 
     result = cur.fetchone()
 
-    # print(result)
-
     return result
 
 
@@ -109,12 +95,6 @@ def data_exsists_artist(artist_id, name, conn):
 
 def insert_album_into_data_base(album_id, name, total_tracks, conn):
     cur = conn.cursor()
-
-    print("Table album ------------------------------------->")
-    print(album_id)
-    print(name)
-    print(total_tracks)
-    print("\n")
 
     if str(data_exsists_album(album_id, name, total_tracks, conn)) == "None":
 
@@ -141,8 +121,6 @@ def data_exsists_album(album_id, name, total_tracks, conn):
 
     result = cur.fetchone()
 
-    # print(result)
-
     return result
 
 
@@ -153,12 +131,7 @@ def insert_genre_into_data_base(genre_id, name, conn):
 
     cur = conn.cursor()
 
-    print("Table genre ------------------------------------->")
-    print(genre_id)
-
     for g in name:
-
-        print(g)
 
         if str(data_exsists_genre(genre_id, g, conn)) == "None":
 
@@ -166,8 +139,6 @@ def insert_genre_into_data_base(genre_id, name, conn):
             insert_statement = "INSERT INTO genres(genre_id, genre) VALUES(%s,%s)"
             data_to_insert = (genre_id, g)
             cur.execute(insert_statement, data_to_insert)
-
-    print("\n")
 
     conn.commit()
 
@@ -184,8 +155,6 @@ def data_exsists_genre(genre_id, name, conn):
     cur.execute(query, params)
 
     result = cur.fetchone()
-
-    # print(result)
 
     return result
 
@@ -209,7 +178,7 @@ def insert_artist_track_into_data_base(track_id, artist_id, conn):
 def data_exsists_artist_track(track_id, artist_id, conn):
     cur = conn.cursor()
 
-    query = """ SELECT track_id, artist_id
+    query = """ SELECT track_id, artist_id 
                     FROM artist_track
                     WHERE track_id=%s and artist_id=%s ;"""
 

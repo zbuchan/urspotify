@@ -43,16 +43,27 @@ onMounted(() => {
       
 
       <div class="column">
-        <h2>Top Genre</h2>
-          <div v-for="(item, index) in sortedTopGenre" :key="index">
-            <p>{{ item.key }}: {{ item.value }}</p>
-            <pre> </pre>
-          </div>
+
+        <h2>Top Genres</h2>         
+        <table class="table table-striped">
+          
+        <tbody>
+        <tr v-for="(item, index) in sortedTopGenre" :key="index">
+          <td>{{ item.key }}</td>
+          <td>{{ item.value }}</td>
+        </tr>
+        </tbody>
+      </table>
+      
       </div>
 
       
     </div>
   </div>
+
+
+
+
 
 </template>
 

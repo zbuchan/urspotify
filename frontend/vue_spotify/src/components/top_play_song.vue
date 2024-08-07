@@ -38,11 +38,17 @@ onMounted(() => {
   <div id="app">
     <div class="row"> 
       <div class="column"> 
-        <h2>Top Played Songs</h2>
-          <div v-for="(item, index) in sortedMostPlayedTracks" :key="index">
-            <p>{{ item.key }}: {{ item.value }}</p>
-            <pre> </pre>
-          </div>
+        <h2>Top Songs</h2>         
+  <table class="table table-striped">
+    
+
+    <tbody>
+      <tr v-for="(item, index) in sortedMostPlayedTracks" :key="index">
+        <td>{{ item.key }}</td>
+        <td>{{ item.value }}</td>
+      </tr>
+    </tbody>
+    </table>
       </div>
       
       
@@ -51,6 +57,13 @@ onMounted(() => {
     </div>
   </div>
 
+
+
+
+
+
+
+  
 </template>
 
 

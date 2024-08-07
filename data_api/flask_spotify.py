@@ -6,11 +6,6 @@ app = Flask(__name__)
 CORS(app)
 
 
-@app.route("/")
-def hello():
-    return "flask is working"
-
-
 @app.route("/track", methods=["GET"])
 def spotify_data():
 
