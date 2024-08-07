@@ -45,7 +45,8 @@ docker-compose up --build
 
 ## Contact
 Zachary Buchan - zacharyjbuchan@gmail.com
-LinkedIn - https://www.linkedin.com/in/zach-buchan-2a45902a8?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bqz%2FFId1jR3WX9Ick%2Fc7i5Q%3D%3D
+LinkedIn - www.linkedin.com/in/zach-buchan
+
 
 
 
