@@ -30,12 +30,48 @@ URSpotifyData is a project that utilizes the Spotipy Python library to access th
 
 * Docker
 * Linux
+* Spotify
 
 ### Installing
 
 * Download `urspotify` directory 
 
 ### Executing program
+* Obtain Spotify client id and client password from https://developer.spotify.com/
+  ```
+  1. Login to account
+  
+  2. Click on name in top right and click on dashboard
+  
+  3. Click on Create app on the top right
+  
+  4. Create name
+  
+  5. Make the Redirect URI to http://localhost:8080/callback
+  
+  6. Click on save
+  
+  7. Press the settings buttion on the top right in the project you just created
+  
+  8. Client ID is now visible
+  
+  9. Press View client secret to also obtain the client secret
+  
+  10. Copy and paste this information into the right location in the .env file
+  ```
+  
+
+
+* Create .env file in root directory
+  ```
+  pg_user= # Make own username for Postgreql database
+  pg_password= # Make own password for Postgreql database
+  DB= spotify
+  pg_host= # Postgresql database name(container name)
+  URI= http://localhost:8080/callback
+  client_id= # Spotify client id
+  client_secret= # Spotify client secret 
+  ```
 
 * Run this command in root directory
 ```
