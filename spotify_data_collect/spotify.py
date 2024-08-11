@@ -66,7 +66,6 @@ def process_tracks(results, sp, db_conn):
 
     for i in range(len(results["items"])):
         track_id = results["items"][i]["track"]["id"]
-        logger.warning(track_id)
 
         album_id = results["items"][i]["track"]["album"]["id"]
         track_name = results["items"][i]["track"]["name"]
