@@ -66,17 +66,22 @@ URSpotifyData is a project that utilizes the Spotipy Python library to access th
   ```
   pg_user= # Make own username for Postgreql database
   pg_password= # Make own password for Postgreql database
-  DB= spotify
+  DB= spotify #(database name)
   pg_host= # Postgresql database name(container name)
   URI= http://localhost:8080/callback
   client_id= # Spotify client id
   client_secret= # Spotify client secret 
   ```
+* Run the shell script file in root directory to authenticate Spotify user
+  ```
+  ./spotify-login.sh
+  ```
+  
 
 * Run this command in root directory
-```
-docker-compose up --build
-```
+  ```
+  docker-compose up --build
+  ```
 * In search bar type in `localhost:80`
 
 ## Contact
